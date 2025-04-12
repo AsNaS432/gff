@@ -52,13 +52,12 @@ def chat():
     user_message = data.get('message', '')
     
     # Если это первое сообщение, отправляем приветствие
-    reply = GREETING
-
     if user_message.lower() == "привет" or user_message.lower() == "здравствуйте":
         reply = GREETING
     else:
         # Поиск ответа в базе знаний
         reply = find_answer(user_message)
+
     
     return jsonify({
         'success': True,
